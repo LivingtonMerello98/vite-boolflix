@@ -1,7 +1,9 @@
 
 <script>
 export default {
-    // Definiamo i dati locali del componente
+    //dichiaro gli eventi che il componente emette
+    emits: ['search'],
+
     data() {
         return {
             // Inizializziamo la variabile query a una stringa vuota
@@ -12,6 +14,7 @@ export default {
         emitSearch() {
             // Quando chiamato, questo metodo emette l'evento 'search' con il valore corrente della query
             this.$emit('search', this.query);
+            console.log('search pressed')
         }
     }
 };
@@ -22,3 +25,5 @@ export default {
     <input v-model="query" @keyup.enter="emitSearch" placeholder="Cerca" />
     <button @click="emitSearch">Search</button>
 </template>
+
+

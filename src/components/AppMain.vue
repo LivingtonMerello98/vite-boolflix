@@ -3,10 +3,16 @@ import AppCard from './AppCard.vue';
 
 export default {
     props: {
+        //
         results: Array
     },
     components: {
         AppCard
+    },
+    watch: {
+        results(newResults) {
+            console.log('risultati stampati:', newResults.length);
+        }
     }
 };
 </script>
