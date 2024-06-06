@@ -1,4 +1,5 @@
 <script>
+
 export default {
     props: {
         movie: Object
@@ -7,13 +8,13 @@ export default {
         flagUrl() {
             //maps per bandiera
             const flagMap = {
-                'it': ('/flag/italy.png'),
-                'en': ('/flag/usa.png'),
-                'es': ('/flag/spain.png'),
-                'ja': ('/flag/japan.png')
+                'it': ('/flags/italy.png'),
+                'en': ('/flags/usa.png'),
+                'es': ('/flags/spain.png'),
+                'ja': ('/flags/japan.png')
             };
             // url bandiera corrispondente alla lingua del film
-            return flagMap[this.movie.language] || ('/flag/default.png');
+            return flagMap[this.movie.language] || ('/flags/default.png');
         }
     }
 };
@@ -22,6 +23,7 @@ export default {
 <template>
     <li>
         <h2>{{ movie.title }}</h2>
+        <p><strong>Type:</strong> {{ movie.type === 'movie' ? 'Film' : 'Serie TV' }}</p>
         <p><strong>Original Title:</strong> {{ movie.originalTitle }}</p>
         <p>
             <strong>Language:</strong>
