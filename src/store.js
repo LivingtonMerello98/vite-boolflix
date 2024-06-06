@@ -17,8 +17,9 @@ export const store = reactive({
             axios.get(movieUrl),
             axios.get(tvUrl)
         ]).then(axios.spread((moviesResponse, tvResponse) => {
-            //elaborazioni risultati fil e serie
+            // Elaborazioni risultati film e serie TV
             const movies = moviesResponse.data.results.map(movie => ({
+                poster_path: movie.poster_path,
                 type: 'movie',
                 title: movie.title,
                 originalTitle: movie.original_title,
@@ -27,6 +28,7 @@ export const store = reactive({
             }));
 
             const tvShows = tvResponse.data.results.map(tvShow => ({
+                poster_path: tvShow.poster_path,
                 type: 'tv',
                 title: tvShow.name,
                 originalTitle: tvShow.original_name,
@@ -34,7 +36,7 @@ export const store = reactive({
                 vote: tvShow.vote_average
             }));
 
-            // unione risultati fil e serie tv
+            // Unione risultati film e serie TV
             this.result = [...movies, ...tvShows];
             console.log('Store Result:', this.result);
         }))

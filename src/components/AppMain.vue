@@ -1,13 +1,24 @@
 <script>
 import AppCard from './AppCard.vue';
+import { store } from '../store';
 
 export default {
     props: {
         //
         results: Array
     },
+
+    data() {
+        return {
+            store
+        };
+    },
     components: {
         AppCard
+    },
+    created() {
+        //esmpio di ricerca iniziale nel main
+        this.store.searchMovies('back to the future');
     },
     watch: {
         results(newResults) {
