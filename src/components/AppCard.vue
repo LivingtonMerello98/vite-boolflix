@@ -13,6 +13,17 @@ export default {
                 // se la path è null -imagine momentanea
                 return 'https://us.123rf.com/450wm/koblizeek/koblizeek2208/koblizeek220800128/190320173-no-image-vector-symbol-missing-available-icon-no-gallery-for-this-moment-placeholder.jpg';
             }
+        },
+        generateStars(vote) {
+            const stars = [];
+            for (let i = 1; i <= 5; i++) {
+                if (i <= vote) {
+                    stars.push(['fas', 'star']); // Stella piena
+                } else {
+                    stars.push(['far', 'star']); // Stella vuota
+                }
+            }
+            return stars;
         }
     },
     computed: {
@@ -42,7 +53,10 @@ export default {
             <img :src="flagUrl" :alt="movie.language" class="flag" />
         </p>
         <p><strong>Vote:</strong> {{ movie.vote }}</p>
-        <font-awesome-icon :icon="['fas', 'star-of-life']" />
+        <div class="stars">
+            <font-awesome-icon v-for="(star, index) in generateStars(movie.vote)" :key="index" :icon="star"
+                class="star-icon" />
+        </div>
     </li>
 </template>
 
@@ -55,5 +69,13 @@ export default {
 .poster {
     width: 200px;
     height: auto;
+}
+
+.stars {
+    display: flex;
+}
+
+.star-icon {
+    margin-right: 0.5rem;
 }
 </style>
