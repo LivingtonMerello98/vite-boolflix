@@ -20,7 +20,11 @@ export default {
                 'the dark knight',
                 'fight club',
                 'forrest gump',
-                'gladiator'
+                'gladiator',
+                'superman',
+                'batman',
+                'ironman',
+                'spiderman'
             ]
         };
     },

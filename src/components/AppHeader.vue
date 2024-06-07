@@ -18,6 +18,13 @@ export default {
 
 <template>
     <header>
-        <AppInput @search="handleSearch" />
+        <div class="container">
+            <div class="row">
+                <div class="col-6"></div>
+                <div class="col-6 d-flex justify-content-end">
+                    <AppInput @search="handleSearch" />
+                </div>
+            </div>
+        </div>
     </header>
 </template>
