@@ -24,7 +24,8 @@ export const store = reactive({
                 title: movie.title,
                 originalTitle: movie.original_title,
                 language: movie.original_language,
-                vote: movie.vote_average
+                //voti cambiati in num. intero da 1 a 5
+                vote: Math.ceil(movie.vote_average / 2)
             }));
 
             const tvShows = tvResponse.data.results.map(tvShow => ({
@@ -33,7 +34,8 @@ export const store = reactive({
                 title: tvShow.name,
                 originalTitle: tvShow.original_name,
                 language: tvShow.original_language,
-                vote: tvShow.vote_average
+                //voti cambiati in num. intero da 1 a 5
+                vote: Math.ceil(tvShow.vote_average / 2)
             }));
 
             // Unione risultati film e serie TV
