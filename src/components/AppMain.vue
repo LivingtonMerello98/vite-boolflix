@@ -4,21 +4,34 @@ import { store } from '../store';
 
 export default {
     props: {
-        //
         results: Array
     },
 
     data() {
         return {
-            store
+            store,
+            searchTerms: [
+                'back to the future',
+                'the matrix',
+                'inception',
+                'interstellar',
+                'the godfather',
+                'pulp fiction',
+                'the dark knight',
+                'fight club',
+                'forrest gump',
+                'gladiator'
+            ]
         };
     },
     components: {
         AppCard
     },
     created() {
-        //esmpio di ricerca iniziale nel main
-        this.store.searchMovies('back to the future');
+        // indice casuale su searchTearms
+        const randomIndex = Math.floor(Math.random() * this.searchTerms.length);
+        const randomSearchTerm = this.searchTerms[randomIndex];
+        this.store.searchMovies(randomSearchTerm);
     },
     watch: {
         results(newResults) {

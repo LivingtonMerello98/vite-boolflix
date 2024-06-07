@@ -3,10 +3,9 @@ export default {
     props: {
         movie: Object
     },
-
     methods: {
         imageUrl() {
-            // controllo se la la path non è null
+            // controllo se la path non è null
             if (this.movie.poster_path) {
                 // URL completo dell'immagine
                 return `https://image.tmdb.org/t/p/w342${this.movie.poster_path}`;
@@ -20,13 +19,13 @@ export default {
         flagUrl() {
             // maps per bandiera
             const flagMap = {
-                'it': ('/flags/italy.png'),
-                'en': ('/flags/usa.png'),
-                'es': ('/flags/spain.png'),
-                'ja': ('/flags/japan.png')
+                'it': '/flags/italy.png',
+                'en': '/flags/usa.png',
+                'es': '/flags/spain.png',
+                'ja': '/flags/japan.png'
             };
             // url bandiera corrispondente alla lingua del film
-            return flagMap[this.movie.language] || ('/flags/default.png');
+            return flagMap[this.movie.language] || '/flags/default.png';
         }
     }
 };
@@ -43,6 +42,7 @@ export default {
             <img :src="flagUrl" :alt="movie.language" class="flag" />
         </p>
         <p><strong>Vote:</strong> {{ movie.vote }}</p>
+        <font-awesome-icon :icon="['fas', 'star-of-life']" />
     </li>
 </template>
 
