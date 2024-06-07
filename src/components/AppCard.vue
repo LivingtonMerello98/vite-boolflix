@@ -44,23 +44,25 @@ export default {
 
 <template>
     <!-- cars -->
-    <b-card class="mb-3">
-        <img :src="imageUrl()" :alt="movie.title" class="poster" />
-        <div class="card-body">
-            <h2 class="card-title">{{ movie.title }}</h2>
-            <p class="card-text"><strong>Type:</strong> {{ movie.type === 'movie' ? 'Film' : 'Serie TV' }}</p>
-            <p class="card-text"><strong>Original Title:</strong> {{ movie.originalTitle }}</p>
-            <p class="card-text">
-                <strong>Language:</strong>
-                <b-img :src="flagUrl" :alt="movie.language" class="flag" fluid></b-img>
-            </p>
-            <p class="card-text"><strong>Vote:</strong> {{ movie.vote }}</p>
-            <div class="stars">
-                <font-awesome-icon v-for="(star, index) in generateStars(movie.vote)" :key="index" :icon="star"
-                    class="star-icon" />
+    <div class="col-3">
+        <b-card class="mb-3">
+            <img :src="imageUrl()" :alt="movie.title" class="poster" />
+            <div class="card-body text-white">
+                <h4 class="card-title">{{ movie.title }}</h4>
+                <p class="card-text"><strong>Type:</strong> {{ movie.type === 'movie' ? 'Film' : 'Serie TV' }}</p>
+                <p class="card-text"><strong>Original Title:</strong> {{ movie.originalTitle }}</p>
+                <p class="card-text">
+                    <strong>Language:</strong>
+                    <img :src="flagUrl" :alt="movie.language" class="flag" />
+                </p>
+                <p class="card-text"><strong>Vote:</strong> {{ movie.vote }}</p>
+                <div class="stars">
+                    <font-awesome-icon v-for="(star, index) in generateStars(movie.vote)" :key="index" :icon="star"
+                        class="star-icon" />
+                </div>
             </div>
-        </div>
-    </b-card>
+        </b-card>
+    </div>
 </template>
 
 <style>
@@ -70,7 +72,7 @@ export default {
 }
 
 .poster {
-    width: 20%;
+    width: 40%;
     height: auto;
 }
 

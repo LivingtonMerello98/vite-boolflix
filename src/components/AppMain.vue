@@ -46,9 +46,11 @@ export default {
 </script>
 
 <template>
-    <main>
-        <ul>
-            <AppCard v-for="movie in results" :key="movie.title" :movie="movie" />
-        </ul>
+    <main class="bg-dark">
+        <div class="container py-5">
+            <div class="row">
+                <AppCard v-for="movie in results" :key="movie.title" :movie="movie" />
+            </div>
+        </div>
     </main>
 </template>
