@@ -43,12 +43,12 @@ export default {
 </script>
 
 <template>
-    <!-- cars -->
-    <div class="col-3">
-        <b-card class="mb-3">
-            <img :src="imageUrl()" :alt="movie.title" class="poster" />
-            <div class="card-body text-white">
-                <h4 class="card-title">{{ movie.title }}</h4>
+    <!-- card -->
+    <div class="col-3 mb-3">
+        <div class="card bg-dark text-white border-0 position-relative">
+            <img :src="imageUrl()" :alt="movie.title" class="card-img-top rounded-2" />
+            <div class="card-hover-info bg-body-black text-white">
+                <h5 class="card-title">{{ movie.title }}</h5>
                 <p class="card-text"><strong>Type:</strong> {{ movie.type === 'movie' ? 'Film' : 'Serie TV' }}</p>
                 <p class="card-text"><strong>Original Title:</strong> {{ movie.originalTitle }}</p>
                 <p class="card-text">
@@ -61,18 +61,13 @@ export default {
                         class="star-icon" />
                 </div>
             </div>
-        </b-card>
+        </div>
     </div>
 </template>
 
 <style>
 .flag {
     width: 20px;
-    height: auto;
-}
-
-.poster {
-    width: 40%;
     height: auto;
 }
 
@@ -83,5 +78,22 @@ export default {
 .star-icon {
     color: gold;
     margin-right: 4px;
+    font-size: 0.8rem;
+}
+
+.card-hover-info {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    z-index: 1;
+}
+
+.card:hover .card-hover-info {
+    display: block;
 }
 </style>
