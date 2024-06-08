@@ -1,7 +1,52 @@
-# Vue 3 + Vite
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+# Boolflix 
 
-## Recommended IDE Setup
 
-- [VS Code](https://code.visualstudio.com/) + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (previously Volar) and disable Vetur
+Boolflix è una Web-App sviluppata con Vite, Vue.js. Consente agli utenti la ricerca in un ampio store di serie e film, l'app è stata costruita tramite chiamata Axios a un Api
+
+## Struttura del progetto
+
+•index.html: Contiene la struttura HTML della pagina web e inclusione del main.js.
+
+•📂Src: 
+    |
+    |
+    • 📂components    
+    |   |
+    |   |_•AppHeader
+    |   |   |
+    |   |   |_•AppInput
+    |   |
+    |   |_•AppMain
+    |   |  |
+    |   |  |_•AppCard
+    |   |
+    |   |_•AppFooter
+    |
+    |   
+    |   
+    •App.Vue
+    |  
+    | 
+    •main.js
+    |  
+    | 
+    •store.js /apiUrl e chiamata axios
+
+•App.vue: Contiene importazione dei componenti e assemblaggio nel <template/>
+.
+
+•main.js: destrutturazione di createApp ,importazione di fontawesome e bootsrap e metodo .mount() per montare l'applicativo sull index.html
+
+## Preview
+
+![App Screenshot](./public/boolflix-page.png)
+
+
+## 🚀 About Me
+
+•Nome: Livington Merello 
+
+•Email: livington.merello@gmail.com
+
+•GitHub: LivingtonMerello98
