@@ -19,6 +19,9 @@ export default {
             // Riemette a sua volta l'evento search
             this.$emit('search', query);
         },
+        refresh() {
+            window.location.reload()
+        }
     },
     computed: {
         logoImage() {
@@ -33,7 +36,7 @@ export default {
         <div class="container py-2">
             <div class="row">
                 <div class="col-9 d-flex align-items-center">
-                    <img :src="logoImage" />
+                    <img :src="logoImage" @click="refresh()" />
                     <div class="link-items text-white mx-4 small-font">
                         <a v-for="(item, index) in menuItems" :key="index"
                             :class="{ 'mx-3': true, 'active': activeIndex === index }" @click="setActive(index)" href="#">{{

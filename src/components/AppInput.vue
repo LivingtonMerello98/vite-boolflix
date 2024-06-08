@@ -34,7 +34,6 @@ export default {
         <div class="d-flex align-items-center">
             <font-awesome-icon :icon="['fas', 'bell']" class="text-white mx-1" />
             <img :src="profileUrl" alt="profile" class="profile mx-1" />
-            <!-- <font-awesome-icon :icon="['fas', 'caret-down']" class="arrow-down text-white mx-1" /> -->
         </div>
 
     </div>

@@ -24,6 +24,7 @@ export const store = reactive({
                 title: movie.title,
                 originalTitle: movie.original_title,
                 language: movie.original_language,
+                id: movie.id,
                 //voti cambiati in num. intero da 1 a 5
                 vote: Math.ceil(movie.vote_average / 2)
             }));
@@ -34,6 +35,7 @@ export const store = reactive({
                 title: tvShow.name,
                 originalTitle: tvShow.original_name,
                 language: tvShow.original_language,
+                id: tvShow.id,
                 //voti cambiati in num. intero da 1 a 5
                 vote: Math.ceil(tvShow.vote_average / 2)
             }));

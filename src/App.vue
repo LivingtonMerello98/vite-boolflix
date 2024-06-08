@@ -2,6 +2,7 @@
 // Importiamo i componenti AppHeader e AppMain per utilizzarli in questo componente
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
+import AppFooter from './components/AppFooter.vue';
 // Importiamo lo store che contiene lo stato globale e la logica per chiamare l'API
 import { store } from './store';
 
@@ -10,6 +11,7 @@ export default {
     components: {
         AppHeader,
         AppMain,
+        AppFooter,
     },
     data() {
         return {
@@ -33,5 +35,7 @@ export default {
         <AppHeader @search="OnSearch" />
         <!-- Includiamo il componente AppMain e passiamo i risultati dello store come prop 'results' -->
         <AppMain :results="store.result" />
+        <AppFooter />
+
     </div>
 </template>

@@ -49,16 +49,28 @@ export default {
             <img :src="imageUrl()" :alt="movie.title" class="card-img-top rounded-2" />
             <div class="card-hover-info bg-body-black text-white">
                 <h5 class="card-title">{{ movie.title }}</h5>
-                <p class="card-text"><strong>Type:</strong> {{ movie.type === 'movie' ? 'Film' : 'Serie TV' }}</p>
-                <p class="card-text"><strong>Original Title:</strong> {{ movie.originalTitle }}</p>
-                <p class="card-text">
+                <span class="card-text d-block"><strong>Type:</strong> {{ movie.type === 'movie' ? 'Film' : 'Serie TV'
+                }}</span>
+                <span class="card-text d-block"><strong>Original Title:</strong> {{ movie.originalTitle }}</span>
+                <span class="card-text d-block">
                     <strong>Language:</strong>
-                    <img :src="flagUrl" :alt="movie.language" class="flag" />
-                </p>
-                <p class="card-text"><strong>Vote:</strong> {{ movie.vote }}</p>
+                    <img :src="flagUrl" :alt="movie.language" class="flag mx-2" />
+                </span>
+                <span class="card-text"><strong>Vote:</strong></span>
                 <div class="stars">
                     <font-awesome-icon v-for="(star, index) in generateStars(movie.vote)" :key="index" :icon="star"
                         class="star-icon" />
+                </div>
+                <div class="interaction d-flex">
+                    <button type="button small-button" class="btn btn-dark my-3 mx-1"><font-awesome-icon
+                            :icon="['fas', 'play']" />
+                    </button>
+                    <button type="button small-button" class="btn btn-dark my-3 mx-1"><font-awesome-icon
+                            :icon="['fas', 'plus']" />
+                    </button>
+                    <button type="button small-button" class="btn btn-dark my-3 mx-1"><font-awesome-icon
+                            :icon="['fas', 'share']" />
+                    </button>
                 </div>
             </div>
         </div>
