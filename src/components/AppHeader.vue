@@ -1,33 +1,40 @@
 <script>
+/*AppHeader ri-emette l'evento passato da appInput
+*/
+
+//import componenti.
 import AppInput from './AppInput.vue';
 
 export default {
-    components: {
-        AppInput,
-    },
+
+    name: 'AppHeader',
+
     data() {
         return {
+
             activeIndex: null,
-            menuItems: ['Home', 'Serie TV', 'Film', 'Nuovi e popolari', 'La mia lista', 'Sfoglia per lingua']
+            menuItems: ['Home', 'Serie TV', 'Film', 'Nuovi e popolari', 'La mia lista', 'Sfoglia per lingua'],
+            logoImage: 'https://image.tmdb.org/t/p/w92/wwemzKWzjKYJFfCeiB57q3r4Bcm.png',
+
         };
     },
+    components: {
+
+        AppInput,
+
+    },
     methods: {
+
         setActive(index) {
             this.activeIndex = index;
         },
+
         handleSearch(query) {
             // Riemette a sua volta l'evento search
             this.$emit('search', query);
-        },
-        refresh() {
-            window.location.reload()
         }
     },
-    computed: {
-        logoImage() {
-            return 'https://image.tmdb.org/t/p/w92/wwemzKWzjKYJFfCeiB57q3r4Bcm.png';
-        }
-    }
+    
 };
 </script>
 
@@ -36,16 +43,33 @@ export default {
         <div class="container py-2">
             <div class="row">
                 <div class="col-9 d-flex align-items-center">
-                    <img :src="logoImage" @click="refresh()" />
+                    <!-- logo -->
+                    <img :src="logoImage"/>
+
                     <div class="link-items text-white mx-4 small-font">
+
+                        <!-- itera sull'array menuItems, 
+                         utilizzando il flag activeIndex 
+                         e il metodo setActive attiva la classe active -->
                         <a v-for="(item, index) in menuItems" :key="index"
-                            :class="{ 'mx-3': true, 'active': activeIndex === index }" @click="setActive(index)" href="#">{{
-                                item }}</a>
+                            :class="{ 'mx-3': true, 'active': activeIndex === index }"
+                            @click="setActive(index)"
+                            href="#">
+                            {{ item }}
+                        </a>
+
                     </div>
                 </div>
+
+                <!-- emit @search emesso da AppInput che chiama la funzione handleSearch() -->
                 <div class="col-3 d-flex justify-content-end align-items-center">
-                    <AppInput @search="handleSearch" />
+
+                    <AppInput 
+                    @search="handleSearch" 
+                    />
+
                 </div>
+
             </div>
         </div>
     </header>

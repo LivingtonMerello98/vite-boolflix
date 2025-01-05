@@ -53,9 +53,13 @@ export default {
                 }}</span>
                 <span class="card-text d-block"><strong>Original Title:</strong> {{ movie.originalTitle }}</span>
                 <span class="card-text d-block">
+
+
                     <strong>Language:</strong>
                     <img :src="flagUrl" :alt="movie.language" class="flag mx-2" />
                 </span>
+
+
                 <span class="card-text"><strong>Vote:</strong></span>
                 <div class="stars">
                     <font-awesome-icon v-for="(star, index) in generateStars(movie.vote)" :key="index" :icon="star"

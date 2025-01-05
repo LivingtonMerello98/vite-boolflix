@@ -1,42 +1,63 @@
-
 <script>
-export default {
-    //dichiaro gli eventi che il componente emette
-    emits: ['search'],
+/*AppInput si occupa di emettere verso AppHeader la query con la funzione EmitSearch()
+*/
 
+export default {
+
+    name: 'AppInput',
+
+    //variabili
     data() {
+
         return {
-            // Inizializziamo la variabile query a una stringa vuota
-            query: ''
+            // inizializiam0 la variabile per l'input come stringa vuota.
+            query: '',
+            profileUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png',
         };
+
     },
+
+    //metodi
     methods: {
+
+        // emette l'evento search con il valore della query.
         emitSearch() {
-            // Quando chiamato, questo metodo emette l'evento 'search' con il valore corrente della query
             this.$emit('search', this.query);
-            console.log('search pressed')
-        }
-    },
-    computed: {
-        profileUrl() {
-            return 'https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png'
+
+            // aggiorniamo nuovamente variabile query a stringa vuota
+            this.query= ''
+ 
         }
     }
 };
 </script>
 
 <template>
+
     <div class="m-2 d-flex align-items-center">
-        <!-- Input field per la query di ricerca -->
-        <input class="form-control small-input" v-model="query" @keyup.enter="emitSearch" placeholder="Cerca" />
-        <button type="button" class="btn btn-danger mx-2 small-button" @click="emitSearch">Cerca</button>
+
+        <!-- v-model per doppio binding con la variabile query
+         e evento keyUp.enter per chiamare emitSearch()  -->
+
+        <input class="form-control small-input" 
+        v-model="query" 
+        @keyup.enter="emitSearch()" 
+        placeholder="Cerca" />
+
+
+        <!-- pulsante con evento click per chiamare emitSearch() -->
+        <button type="button" 
+        class="btn btn-danger mx-2 small-button" 
+        @click="emitSearch()">Cerca</button>
+
 
         <div class="d-flex align-items-center">
             <font-awesome-icon :icon="['fas', 'bell']" class="text-white mx-1" />
             <img :src="profileUrl" alt="profile" class="profile mx-1" />
         </div>
-
+        
     </div>
+
 </template>
 
 <style lang="scss" scoped>

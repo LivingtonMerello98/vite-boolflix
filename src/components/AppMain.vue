@@ -1,10 +1,14 @@
 <script>
+//importiamo i componenti
 import AppCard from './AppCard.vue';
 import { store } from '../store';
 
 export default {
     props: {
-        results: Array
+        results:{
+            type:Array,
+            require: true
+        }
     },
 
     data() {
@@ -49,7 +53,7 @@ export default {
     <main class="bg-dark">
         <div class="container py-5">
             <div class="row">
-                <h1 class="py-4 text-white">Goditi i tuoi film preferiti in unico spazio</h1>
+                <h1 class="py-4 text-white">Goditi i tuoi film preferiti</h1>
                 <AppCard v-for="movie in results" :key="movie.title" :movie="movie" />
             </div>
         </div>

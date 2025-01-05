@@ -1,40 +1,51 @@
 <script>
-// Importiamo i componenti AppHeader e AppMain per utilizzarli in questo componente
+//importiamo la costante store destrutturandola dal file sotre.js
+import { store } from './store';
+
+
+//Importiamo i componenti AppHeader e AppMain per utilizzarli in questo componente
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
 import AppFooter from './components/AppFooter.vue';
-// Importiamo lo store che contiene lo stato globale e la logica per chiamare l'API
-import { store } from './store';
+
 
 export default {
-    // Registriamo i componenti che verranno usati in questo componente
-    components: {
-        AppHeader,
-        AppMain,
-        AppFooter,
-    },
+
+    //qui custodiamo le variabili
     data() {
         return {
             store
         };
     },
+
+    // Registriamo i componenti
+    components: {
+        AppHeader,
+        AppMain,
+        AppFooter,
+    },
+    
     methods: {
 
+        //metodo che chiama la funzione searchMovie nello store a cui passiamo query
         OnSearch(query) {
-            //la funzione searchMovie è definita nell store.js che prende il parametro query 
-            //specificato in AppInput
             store.searchMovies(query);
         }
+
     }
+
 };
 </script>
 
 <template>
     <div id="app">
-        <!--appheader passa search a appVue che gestisce l evento in Search-->
+        <!--appheader passa un emit search ache attiva la funzione OnSearch -->
         <AppHeader @search="OnSearch" />
-        <!-- Includiamo il componente AppMain e passiamo i risultati dello store come prop 'results' -->
+
+        <!-- Includiamo il componente AppMain e passiamo come prop :store.result -->
         <AppMain :results="store.result" />
+
+
         <AppFooter />
 
     </div>
