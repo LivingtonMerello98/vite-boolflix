@@ -33,8 +33,9 @@ export default {
     <div id="app">
         <!--appheader passa search a appVue che gestisce l evento in Search-->
         <AppHeader @search="OnSearch" />
-        <!-- Includiamo il componente AppMain e passiamo i risultati dello store come prop 'results' -->
-        <AppMain :results="store.result" />
+
+        <router-view></router-view>
+
         <AppFooter />
 
     </div>

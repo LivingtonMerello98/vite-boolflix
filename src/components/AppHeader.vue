@@ -8,7 +8,16 @@ export default {
     data() {
         return {
             activeIndex: null,
-            menuItems: ['Home', 'Serie TV', 'Film', 'Nuovi e popolari', 'La mia lista', 'Sfoglia per lingua']
+            menuItems: [
+                {
+                    name: 'Home',
+                    url: '/'
+                },
+                {
+                    name: 'Content',
+                    url: '/Content'
+                }
+            ]
         };
     },
     methods: {
@@ -37,10 +46,14 @@ export default {
             <div class="row">
                 <div class="col-9 d-flex align-items-center">
                     <img :src="logoImage" @click="refresh()" />
-                    <div class="link-items text-white mx-4 small-font">
-                        <a v-for="(item, index) in menuItems" :key="index"
-                            :class="{ 'mx-3': true, 'active': activeIndex === index }" @click="setActive(index)" href="#">{{
-                                item }}</a>
+                    <div class="link-items text-white d-flex mx-4 small-font">
+
+                        <li v-for="(link, index) in menuItems" :key="index">
+                            <router-link :to="link.url" :class="{ 'mx-3': true, 'active': activeIndex === index }" @click="setActive(index)">
+                                {{ link.name }}
+                            </router-link>
+                        </li>
+
                     </div>
                 </div>
                 <div class="col-3 d-flex justify-content-end align-items-center">
@@ -65,5 +78,9 @@ a {
 
 a.active {
     font-weight: bold;
+}
+
+li{
+    list-style: none;
 }
 </style>
