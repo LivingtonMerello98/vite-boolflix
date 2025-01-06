@@ -4,8 +4,8 @@ import axios from 'axios';
 export const store = reactive({
     result: [],
     info: {},
-    apiUrl: 'https://api.themoviedb.org/3/search/',
-    apiKey: '55d225bdb3e209cf2f546c83d3db58cf',
+    apiUrl: import.meta.env.VITE_API_URL,
+    apiKey: import.meta.env.VITE_API_KEY,
 
     searchMovies(query) {
         // URL per la ricerca di film e serie TV
