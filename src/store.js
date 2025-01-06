@@ -6,9 +6,10 @@ export const store = reactive({
 
     //array vuoto
     result: [],
-    info: {},
-    apiUrl: 'https://api.themoviedb.org/3/search/',
-    apiKey: '55d225bdb3e209cf2f546c83d3db58cf',
+
+    //chiavi presenti nel file .env che non verrà pushato
+    apiUrl: import.meta.env.VITE_API_URL,
+    apiKey: import.meta.env.VITE_API_KEY,
 
     searchMovies(query) {
 
